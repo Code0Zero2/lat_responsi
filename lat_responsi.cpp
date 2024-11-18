@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 void menu_utama(int &pilihan);
@@ -114,11 +115,18 @@ void tambah_book(string jdl_bk[], string pngr[], int thntbt[], int &data){
 
 void liat_dafbook(string jdl_bk[], string pngr[], int thntbt[], int data){
     cout << "\n===+ Daftar Buku +===\n";
+    cout << setfill('=') << setw(100) << "=" << endl;
+    cout << setfill(' ') << setw(5) << left << "No"
+         << setw(30) << left << "Judul Buku"
+         << setw(30) << left << "Pengarang"
+         << setw(15) << left << "Tahun Terbit" << endl;
+    cout << setfill('-') << setw(100) << "-" << endl;
     for(int j = 0; j < data; j++){
-        cout << endl << "Buku " << j + 1 << endl;
-        cout << "Judul Buku : " << jdl_bk[j] << endl;
-        cout << "Pengarang : " << pngr[j] << endl;
-        cout << "Tahun Terbit : " << thntbt[j] << endl;
+        cout << setfill(' ') << setw(5) << j + 1
+        //cout << endl << "Buku " << j + 1 << endl;
+        << setw(30) << left << jdl_bk[j]
+        << setw(30) << left << pngr[j]
+        << setw(15) << left << thntbt[j] << endl;
     }
 }
 
